@@ -1,0 +1,105 @@
+<section class="dashboard">
+  <h1 class="dashboard-title">Tableau de bord</h1>
+
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-icon circle yellow">👥</div>
+      <div class="stat-text">
+        <div class="stat-value">20</div>
+        <div class="stat-label">Partenaires</div>
+      </div>
+    </div>
+
+    <div class="stat-card">
+      <div class="stat-icon circle yellow">📦</div>
+      <div class="stat-text">
+        <div class="stat-value">100</div>
+        <div class="stat-label">Produits en ligne</div>
+      </div>
+    </div>
+
+    <div class="stat-card">
+      <div class="stat-icon circle yellow">🧾</div>
+      <div class="stat-text">
+        <div class="stat-value">500</div>
+        <div class="stat-label">Commandes</div>
+      </div>
+    </div>
+
+    <div class="stat-card">
+      <div class="stat-icon circle yellow">💳</div>
+      <div class="stat-text">
+        <div class="stat-value">40</div>
+        <div class="stat-label">Transaction</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dashboard-row">
+    <div class="panel panel-progress">
+      <div class="panel-title">Taux de complétion des commandes groupées</div>
+      <div class="panel-subtitle">78% des commandes atteignent le MOQ</div>
+      <div class="progress-bar">
+        <div class="progress-bar-inner" style="width: 78%"></div>
+      </div>
+    </div>
+
+    <div class="panel panel-metric">
+      <div class="panel-title">Délai moyen d'expédition</div>
+      <div class="panel-highlight">2 Semaines</div>
+    </div>
+  </div>
+
+  <div class="panel panel-table">
+    <div class="panel-table-header">
+      <h2>Commandes groupées</h2>
+    </div>
+
+    <div class="table-wrapper">
+      <table class="dashboard-table">
+        <thead>
+        <tr>
+          <th>ID</th>
+          <th>Produit</th>
+          <th>MOQ</th>
+          <th>Réservé</th>
+          <th>Avancement</th>
+          <th>Deadline</th>
+          <th>Statut</th>
+          <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>#RP-1021</td>
+          <td>cartons d'emballage 50 x 50</td>
+          <td>100</td>
+          <td>70</td>
+          <td>
+            <div class="progress-bar small">
+              <div class="progress-bar-inner" style="width: 70%"></div>
+            </div>
+          </td>
+          <td>25/10/2025</td>
+          <td class="status">⏳</td>
+          <td class="actions">🗑️</td>
+        </tr>
+        <tr>
+          <td>#RP-1022</td>
+          <td>Power banks 10 000 Ah</td>
+          <td>200</td>
+          <td>70</td>
+          <td>
+            <div class="progress-bar small">
+              <div class="progress-bar-inner" style="width: 50%"></div>
+            </div>
+          </td>
+          <td>25/10/2025</td>
+          <td class="status">⏳</td>
+          <td class="actions">🗑️</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>

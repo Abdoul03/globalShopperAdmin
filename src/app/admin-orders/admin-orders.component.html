@@ -1,0 +1,66 @@
+<section class="orders-page">
+  <header class="orders-header">
+    <h1 class="orders-title">Commandes groupées - supervision</h1>
+
+    <div class="orders-actions">
+      <select class="filter-select" title="Filtrer les commandes">
+        <option>Ouvertes</option>
+        <option>Terminées</option>
+        <option>Toutes</option>
+      </select>
+
+      <button class="primary-btn">Crée une commande</button>
+    </div>
+  </header>
+
+  <div class="orders-card">
+    <table class="orders-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Produit</th>
+          <th>MOQ</th>
+          <th>Réservé</th>
+          <th>Avancement</th>
+          <th>Deadline</th>
+          <th>Statut</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of groupedOrders">
+          <td>{{ order.id }}</td>
+          <td>{{ order.product }}</td>
+          <td>{{ order.moq }}</td>
+          <td>{{ order.reserved }}</td>
+          <td>
+            <div class="progress-bar">
+              <div class="progress-bar-bg"></div>
+              <div
+                class="progress-bar-fill"
+                [style.width.%]="order.progress"
+              ></div>
+            </div>
+          </td>
+          <td>{{ order.deadline }}</td>
+          <td class="status-cell">
+            <span
+              class="status-icon"
+              [ngClass]="{
+                'status-icon-pending': order.status === 'pending',
+                'status-icon-in-progress': order.status === 'in_progress'
+              }"
+            >
+              ⏳
+            </span>
+          </td>
+          <td class="actions-cell">
+            <button type="button" class="delete-btn" title="Supprimer">
+              🗑
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>

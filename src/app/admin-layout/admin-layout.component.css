@@ -1,0 +1,135 @@
+.admin-shell {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f5f7fb;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.sidebar {
+  width: 260px;
+  background-color: #e2f0f8;
+  padding: 0 1rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sidebar-logo {
+  margin-top: 8px; /* petite marge entre le haut et le logo */
+}
+
+.sidebar-logo img {
+  max-width: 190px;
+  height: auto;
+  margin-bottom: 1.6rem;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  width: 100%;
+  align-items: center;
+}
+
+.nav-item {
+  display: block;
+  width: 190px;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  background-color: #ffffff;
+  border: 1px solid transparent;
+  text-decoration: none;
+  color: #111827;
+  font-size: 0.85rem;
+  text-align: left;
+  transition: background-color 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e5f0ff;
+  color: #2563eb;
+  font-size: 0.9rem;
+}
+
+.nav-label {
+  flex: 1;
+}
+
+.nav-item.active {
+  background-color: #f3f4f6;
+  border-color: #cbd5f5;
+  box-shadow: 0 8px 18px rgba(148, 163, 184, 0.5);
+}
+
+.nav-item:hover {
+  background-color: #f9fafb;
+  border-color: #e5e7eb;
+  transform: translateY(-1px);
+}
+
+.logout-btn {
+  margin-top: 2rem;
+  margin-bottom: 1.2rem;
+  width: 200px;
+  padding: 0.6rem 1rem;
+  border-radius: 999px;
+  border: 1px solid #fecaca;
+  background-color: #ffe4e6; /* rouge très clair, plus doux */
+  color: #b91c1c;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  box-shadow: none;
+  transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
+}
+
+.logout-btn:hover {
+  background-color: #fecaca;
+  border-color: #fca5a5;
+  transform: translateY(-1px);
+}
+
+.admin-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.topbar {
+  height: 70px;
+  background-color: #e5a925;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  color: #ffffff;
+}
+
+.topbar-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.topbar-right {
+  font-size: 0.9rem;
+}
+
+.admin-content {
+  padding: 2rem;
+}

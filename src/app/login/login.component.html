@@ -1,0 +1,58 @@
+<div class="login-page">
+  <div class="login-left">
+    <div class="logo">
+      <img src="assets/logo.png" alt="Global Shopper Logo" class="logo-img" />
+    </div>
+  </div>
+
+  <div class="login-right">
+    <div class="login-card">
+      <h2>Connectez vous à votre tableau de bord</h2>
+
+      <form (ngSubmit)="onSubmit()" class="login-form">
+        <label class="field">
+          <span class="field-label">E-Mail</span>
+          <div class="field-control">
+            <span class="field-icon">@</span>
+            <input
+              type="email"
+              name="email"
+              [(ngModel)]="email"
+              required
+              placeholder="E-Mail"
+            />
+          </div>
+        </label>
+
+        <label class="field">
+          <span class="field-label">Mot de passe</span>
+          <div class="field-control">
+            <span class="field-icon">🔒</span>
+            <input
+              type="password"
+              name="password"
+              [(ngModel)]="password"
+              required
+              placeholder="Mot de passe"
+            />
+          </div>
+        </label>
+
+        <div class="login-actions">
+          <label class="remember">
+            <input
+              type="checkbox"
+              [(ngModel)]="rememberMe"
+              name="rememberMe"
+            />
+            <span>Se souvenir de moi</span>
+          </label>
+
+          <button class="login-button" type="submit">
+            Se connecter
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
