@@ -98,6 +98,10 @@
     }
   },
   "cli": {
+<<<<<<< HEAD
     "analytics": "ed9ae93b-b39f-430a-81e2-b69492b3e71d"
+=======
+    "analytics": false
+>>>>>>> ac3df6e (ajout du service)
   }
 }
