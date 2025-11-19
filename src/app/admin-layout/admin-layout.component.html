@@ -7,45 +7,59 @@
     <nav class="sidebar-nav">
       <a routerLink="/admin/dashboard" routerLinkActive="active" class="nav-item">
         <span class="nav-inner">
-          <span class="nav-icon">🏠</span>
+          <span class="nav-icon">
+            <img src="assets/Vector (1).png" alt="Icône tableau de bord" />
+          </span>
           <span class="nav-label">Tableau de bord</span>
         </span>
       </a>
       <a routerLink="/admin/fournisseurs" routerLinkActive="active" class="nav-item">
         <span class="nav-inner">
-          <span class="nav-icon">👤</span>
+          <span class="nav-icon">
+            <img src="assets/Vector (2).png" alt="Icône fournisseurs" />
+          </span>
           <span class="nav-label">Fournisseurs</span>
         </span>
       </a>
       <a routerLink="/admin/utilisateurs" routerLinkActive="active" class="nav-item">
         <span class="nav-inner">
-          <span class="nav-icon">👥</span>
+          <span class="nav-icon">
+            <img src="assets/Vector (3).png" alt="Icône utilisateurs" />
+          </span>
           <span class="nav-label">Utilisateurs</span>
         </span>
       </a>
       <a routerLink="/admin/produits" routerLinkActive="active" class="nav-item">
         <span class="nav-inner">
-          <span class="nav-icon">🛒</span>
+          <span class="nav-icon">
+            <img src="assets/Vector (4).png" alt="Icône produits" />
+          </span>
           <span class="nav-label">Produits</span>
         </span>
       </a>
       <a routerLink="/admin/commandes" routerLinkActive="active" class="nav-item">
         <span class="nav-inner">
-          <span class="nav-icon">📦</span>
+          <span class="nav-icon">
+            <img src="assets/Vector (5).png" alt="Icône commandes" />
+          </span>
           <span class="nav-label">Commandes</span>
         </span>
       </a>
       <a routerLink="/admin/transactions" routerLinkActive="active" class="nav-item">
         <span class="nav-inner">
-          <span class="nav-icon">💳</span>
+          <span class="nav-icon">
+            <img src="assets/Vector (2).png" alt="Icône transaction" />
+          </span>
           <span class="nav-label">Transaction</span>
         </span>
       </a>
     </nav>
 
-    <button class="logout-btn">
-      <span class="nav-icon">⏻</span>
-      <span>Deconnexion</span>
+    <button class="nav-item logout-btn" (click)="logout()">
+      <span class="nav-inner">
+        <span class="nav-icon">⏻</span>
+        <span class="nav-label logout-label">Deconnexion</span>
+      </span>
     </button>
   </aside>
 

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterOutlet } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-layout',
@@ -9,4 +10,10 @@ import { RouterLink, RouterOutlet } from '@angular/router';
   templateUrl: './admin-layout.component.html',
   styleUrl: './admin-layout.component.css'
 })
-export class AdminLayoutComponent {}
+export class AdminLayoutComponent {
+  constructor(private router: Router) {}
+
+  logout() {
+    this.router.navigate(['/']);
+  }
+}

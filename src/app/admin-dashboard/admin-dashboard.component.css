@@ -18,23 +18,30 @@
 
 .stat-card {
   background-color: #ffffff;
-  border-radius: 16px;
-  padding: 1rem 1.25rem;
+  border-radius: 10px;
+  padding: 0.9rem 1.2rem;
   display: flex;
   align-items: center;
   gap: 0.8rem;
-  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.09);
+  border: 1px solid #fbbf24;
+  box-shadow: none;
 }
 
 .stat-icon.circle.yellow {
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   border-radius: 999px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #fffbeb;
-  color: #eab308;
+  background-color: #fbbf24;
+  color: #ffffff;
+}
+
+.stat-icon.circle.yellow img {
+  max-width: 22px;
+  max-height: 22px;
+  display: block;
 }
 
 .stat-text {
@@ -45,11 +52,12 @@
 .stat-value {
   font-size: 1.1rem;
   font-weight: 600;
+  color: #111827;
 }
 
 .stat-label {
   font-size: 0.8rem;
-  color: #6b7280;
+  color: #4b5563;
 }
 
 .dashboard-row {
