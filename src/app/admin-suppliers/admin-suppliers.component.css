@@ -1,0 +1,156 @@
+.suppliers-page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.suppliers-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.suppliers-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.suppliers-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.search-input {
+  padding: 0.55rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid #d1d5db;
+  min-width: 230px;
+  font-size: 0.9rem;
+}
+
+.search-input::placeholder {
+  color: #9ca3af;
+}
+
+.primary-btn {
+  padding: 0.55rem 1.3rem;
+  border-radius: 999px;
+  border: none;
+  background-color: #2563eb;
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 6px 14px rgba(37, 99, 235, 0.25);
+}
+
+.primary-btn:hover {
+  background-color: #1d4ed8;
+}
+
+.suppliers-card {
+  background-color: #ffffff;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.12);
+  border: 1px solid #e5e7eb; /* contour léger pour détacher du fond */
+  width: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+.suppliers-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem; /* texte légèrement plus grand */
+}
+
+.suppliers-table thead {
+  background-color: #eef2ff; /* léger violet/bleu comme sur les autres tableaux */
+}
+
+.suppliers-table th,
+.suppliers-table td {
+  padding: 1rem 1.5rem; /* lignes plus hautes */
+  text-align: left;
+}
+
+.suppliers-table th {
+  font-weight: 600;
+  color: #4b5563;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.suppliers-table tbody tr {
+  border-bottom: 1px solid #e5e7eb;
+  transition: background-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.suppliers-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.suppliers-table tbody tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+.suppliers-table tbody tr:nth-child(even) {
+  background-color: #fdfdfd;
+}
+
+.suppliers-table tbody tr:hover {
+  background-color: #f9fafb;
+  box-shadow: inset 0 -1px 0 #e5e7eb;
+}
+
+.status {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+}
+
+.status-pending {
+  background-color: #fbbf24;
+}
+
+.status-rejected {
+  background-color: #ef4444;
+}
+
+.toggle-switch {
+  position: relative;
+  width: 70px;
+  height: 28px;
+  border-radius: 999px;
+  border: none;
+  background-color: #e5e7eb; /* OFF par défaut */
+  cursor: pointer;
+  padding: 0 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #374151;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+ 
+.toggle-circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  background-color: #ffffff;
+}
+
+.toggle-label {
+  line-height: 1;
+  flex: 1;
+  text-align: center;
+}
+
+.toggle-switch-on {
+  background-color: #2563eb; /* ON = bleu */
+  color: #ffffff;
+  flex-direction: row-reverse; /* rond à droite, texte à gauche */
+}

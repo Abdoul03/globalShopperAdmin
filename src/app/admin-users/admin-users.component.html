@@ -1,0 +1,32 @@
+<section class="users-page">
+  <header class="users-header">
+    <h1 class="users-title">Listes de tous les Utilisateurs</h1>
+  </header>
+
+  <div class="users-card">
+    <table class="users-table">
+      <thead>
+        <tr>
+          <th>Nom</th>
+          <th>Email</th>
+          <th>Type</th>
+          <th>Date inscription</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{ user.name }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.type }}</td>
+          <td>{{ user.registeredAt }}</td>
+          <td class="actions-cell">
+            <button type="button" class="delete-btn" title="Supprimer">
+              🗑
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>

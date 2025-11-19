@@ -1,0 +1,57 @@
+<section class="suppliers-page">
+  <header class="suppliers-header">
+    <h1 class="suppliers-title">Fournisseurs - création &amp; validation</h1>
+
+    <div class="suppliers-actions">
+      <input
+        type="text"
+        class="search-input"
+        placeholder="Rechercher un fournisseur"
+      />
+      <button class="primary-btn">Créer un fournisseur</button>
+    </div>
+  </header>
+
+  <div class="suppliers-card">
+    <table class="suppliers-table">
+      <thead>
+        <tr>
+          <th>Nom</th>
+          <th>Email</th>
+          <th>Num tel</th>
+          <th>État</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let supplier of suppliers">
+          <td>{{ supplier.name }}</td>
+          <td>{{ supplier.email }}</td>
+          <td>{{ supplier.phone }}</td>
+          <td>
+            <span
+              class="status"
+              [ngClass]="{
+                'status-pending': supplier.status === 'pending',
+                'status-rejected': supplier.status === 'rejected'
+              }"
+            ></span>
+          </td>
+          <td>
+            <button
+              type="button"
+              class="toggle-switch"
+              [class.toggle-switch-on]="supplier.active"
+              (click)="toggleActive(supplier)"
+            >
+              <span class="toggle-circle"></span>
+              <span class="toggle-label">
+                {{ supplier.active ? 'ON' : 'OFF' }}
+              </span>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
