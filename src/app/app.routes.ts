@@ -14,6 +14,10 @@ export const routes: Routes = [
     component: LoginComponent,
   },
   {
+    path: 'login',
+    component: LoginComponent,
+  },
+  {
     path: 'admin',
     component: AdminLayoutComponent,
     children: [

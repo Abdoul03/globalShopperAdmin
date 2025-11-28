@@ -5,31 +5,44 @@
 }
 
 .dashboard-title {
-  font-size: 1.2rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: 0.2px;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.dashboard-title::after {
+  content: '';
+  display: block;
+  width: 72px;
+  height: 4px;
+  margin-top: 8px;
+  background: linear-gradient(90deg, #fbbf24, #f59e0b);
+  border-radius: 999px;
 }
 
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
 .stat-card {
   background-color: #ffffff;
   border-radius: 10px;
-  padding: 0.9rem 1.2rem;
+  padding: 1.4rem 1.8rem;
   display: flex;
   align-items: center;
-  gap: 0.8rem;
+  gap: 1.1rem;
   border: 1px solid #fbbf24;
   box-shadow: none;
 }
 
 .stat-icon.circle.yellow {
-  width: 44px;
-  height: 44px;
+  width: 64px;
+  height: 64px;
   border-radius: 999px;
   display: flex;
   align-items: center;
@@ -39,8 +52,8 @@
 }
 
 .stat-icon.circle.yellow img {
-  max-width: 22px;
-  max-height: 22px;
+  max-width: 32px;
+  max-height: 32px;
   display: block;
 }
 
@@ -50,13 +63,13 @@
 }
 
 .stat-value {
-  font-size: 1.1rem;
+  font-size: 1.45rem;
   font-weight: 600;
   color: #111827;
 }
 
 .stat-label {
-  font-size: 0.8rem;
+  font-size: 1.05rem;
   color: #4b5563;
 }
 
@@ -115,42 +128,59 @@
   border-radius: 16px;
   padding: 1.4rem 1.6rem;
   box-shadow: 0 10px 26px rgba(15, 23, 42, 0.09);
+  border: 1px solid #e5e7eb;
 }
 
 .panel-table-header h2 {
   margin: 0 0 1rem;
-  font-size: 1rem;
-  font-weight: 500;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #0f172a;
 }
 
 .table-wrapper {
   border-radius: 14px;
   overflow: hidden;
   border: 1px solid #e5e7eb;
+  background: #fff;
 }
 
 .dashboard-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
 }
 
 .dashboard-table thead {
-  background-color: #f3f4f6;
+  background-color: #f8fafc;
+  border-bottom: 1px solid #e5e7eb;
 }
 
 .dashboard-table th,
 .dashboard-table td {
-  padding: 0.55rem 0.85rem;
+  padding: 0.7rem 1rem;
   text-align: left;
+  vertical-align: middle;
 }
 
 .dashboard-table th {
   font-weight: 600;
+  font-size: 0.8rem;
+  color: #475569;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
 }
 
 .dashboard-table tbody tr:nth-child(even) {
   background-color: #f9fafb;
+}
+
+.dashboard-table tbody tr {
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.dashboard-table tbody tr:hover {
+  background-color: #f1f5f9;
 }
 
 .status {
@@ -160,6 +190,78 @@
 .actions {
   text-align: center;
 }
+
+/* Bouton d'action icône (générique) */
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+  cursor: pointer;
+  transition: background-color .15s ease, border-color .15s ease, box-shadow .15s ease, transform .05s ease;
+}
+
+.btn-icon img {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
+.btn-icon:hover {
+  background-color: #f8fafc;
+  border-color: #cbd5e1;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.08);
+}
+
+.btn-icon:active { transform: translateY(1px); }
+
+.btn-icon:focus-visible {
+  outline: 2px solid transparent;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.35);
+}
+
+/* Variante danger (suppression) */
+.btn-icon--danger {
+  border-color: #fecaca; /* rose-200 */
+  background-color: #fff1f2; /* rose-50 */
+}
+
+.btn-icon--danger:hover {
+  background-color: #ffe4e6; /* rose-100 */
+  border-color: #fca5a5; /* rose-300 */
+}
+
+.btn-icon--danger:focus-visible {
+  box-shadow: 0 0 0 3px rgba(244, 63, 94, 0.35); /* rose focus */
+}
+/* Progress bars (sans styles inline) */
+.progress-bar {
+  position: relative;
+  height: 10px;
+  border-radius: 999px;
+  background-color: #e5e7eb;
+  overflow: hidden;
+}
+
+.progress-bar.small { height: 8px; }
+
+.progress-bar-inner {
+  position: absolute;
+  inset: 0;
+  width: 0;
+  border-radius: 999px;
+}
+
+.progress-primary {
+  background: linear-gradient(90deg, #2563eb, #3b82f6);
+}
+
+.w-70 { width: 70%; }
+.w-50 { width: 50%; }
 
 @media (max-width: 1024px) {
   .stats-grid {
