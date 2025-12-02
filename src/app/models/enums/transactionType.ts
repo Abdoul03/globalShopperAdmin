@@ -1,0 +1,5 @@
+export enum TransactionType {
+  RESERVATION,
+  REMBOURSEMENT,
+  PAYEMENT_FOURNISSEUR,
+}

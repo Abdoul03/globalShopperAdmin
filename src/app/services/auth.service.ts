@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { BehaviorSubject, Observable, throwError, of } from 'rxjs';
 import { catchError, tap, filter, switchMap, take } from 'rxjs/operators';
+import { environement } from '../env';
 
 interface TokenPair {
   accessToken: string;
@@ -16,10 +17,9 @@ interface AuthRequest {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-  private readonly BASE_URL = 'https://globalshopper.onrender.com/api'; // Utilisation du proxy
   private readonly ACCESS_TOKEN_KEY = 'access_token';
   private readonly REFRESH_TOKEN_KEY = 'refresh_token';
   private isAuthenticatedSubject = new BehaviorSubject<boolean>(false);
@@ -37,21 +37,23 @@ export class AuthService {
 
   login(identifiant: string, motDePasse: string, rememberMe: boolean): Observable<TokenPair> {
     const authRequest: AuthRequest = { identifiant, motDePasse };
-    
-    return this.http.post<TokenPair>(`${this.BASE_URL}/auth/login`, authRequest, {
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    }).pipe(
-      tap(tokens => this.saveTokens(tokens, rememberMe)),
-      catchError((error: HttpErrorResponse) => {
-        let errorMessage = 'Une erreur est survenue';
-        if (error.status === 401) {
-          errorMessage = 'Identifiant ou mot de passe incorrect';
-        }
-        return throwError(() => new Error(errorMessage));
+
+    return this.http
+      .post<TokenPair>(`${environement.remoteUrl}/auth/login`, authRequest, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
       })
-    );
+      .pipe(
+        tap((tokens) => this.saveTokens(tokens, rememberMe)),
+        catchError((error: HttpErrorResponse) => {
+          let errorMessage = 'Une erreur est survenue';
+          if (error.status === 401) {
+            errorMessage = 'Identifiant ou mot de passe incorrect';
+          }
+          return throwError(() => new Error(errorMessage));
+        })
+      );
   }
 
   private saveTokens(tokens: TokenPair, rememberMe: boolean): void {
@@ -62,7 +64,7 @@ export class AuthService {
   }
 
   logout(): void {
-    [window.localStorage, window.sessionStorage].forEach(storage => {
+    [window.localStorage, window.sessionStorage].forEach((storage) => {
       storage.removeItem(this.ACCESS_TOKEN_KEY);
       storage.removeItem(this.REFRESH_TOKEN_KEY);
     });
@@ -71,11 +73,15 @@ export class AuthService {
   }
 
   getAccessToken(): string | null {
-    return localStorage.getItem(this.ACCESS_TOKEN_KEY) || sessionStorage.getItem(this.ACCESS_TOKEN_KEY);
+    return (
+      localStorage.getItem(this.ACCESS_TOKEN_KEY) || sessionStorage.getItem(this.ACCESS_TOKEN_KEY)
+    );
   }
 
   getRefreshToken(): string | null {
-    return localStorage.getItem(this.REFRESH_TOKEN_KEY) || sessionStorage.getItem(this.REFRESH_TOKEN_KEY);
+    return (
+      localStorage.getItem(this.REFRESH_TOKEN_KEY) || sessionStorage.getItem(this.REFRESH_TOKEN_KEY)
+    );
   }
 
   isLoggedIn(): boolean {
@@ -92,7 +98,9 @@ export class AuthService {
       const name =
         payload?.name ||
         payload?.fullName ||
-        (payload?.given_name && payload?.family_name ? `${payload.given_name} ${payload.family_name}` : '') ||
+        (payload?.given_name && payload?.family_name
+          ? `${payload.given_name} ${payload.family_name}`
+          : '') ||
         payload?.username ||
         payload?.preferred_username ||
         payload?.email ||
@@ -117,12 +125,12 @@ export class AuthService {
 
     if (this.isRefreshing) {
       return this.refreshTokenSubject.pipe(
-        filter(token => token !== null),
+        filter((token) => token !== null),
         take(1),
         switchMap(() => {
           const newTokens = {
             accessToken: this.getAccessToken()!,
-            refreshToken: refreshToken
+            refreshToken: refreshToken,
           } as TokenPair;
           return of(newTokens);
         })
@@ -132,17 +140,19 @@ export class AuthService {
     this.isRefreshing = true;
     this.refreshTokenSubject.next(null);
 
-    return this.http.post<TokenPair>(`${this.BASE_URL}/auth/refresh`, { refreshToken }).pipe(
-      tap(tokens => {
-        this.saveTokens(tokens, localStorage.getItem(this.REFRESH_TOKEN_KEY) !== null);
-        this.refreshTokenSubject.next(tokens.accessToken);
-        this.isRefreshing = false;
-      }),
-      catchError(error => {
-        this.isRefreshing = false;
-        this.logout();
-        return throwError(() => error);
-      })
-    );
+    return this.http
+      .post<TokenPair>(`${environement.remoteUrl}/auth/refresh`, { refreshToken })
+      .pipe(
+        tap((tokens) => {
+          this.saveTokens(tokens, localStorage.getItem(this.REFRESH_TOKEN_KEY) !== null);
+          this.refreshTokenSubject.next(tokens.accessToken);
+          this.isRefreshing = false;
+        }),
+        catchError((error) => {
+          this.isRefreshing = false;
+          this.logout();
+          return throwError(() => error);
+        })
+      );
   }
 }

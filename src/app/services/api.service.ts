@@ -3,29 +3,36 @@ import { Injectable } from '@angular/core';
 import { environement } from '../env';
 import { Commercant, Fournisseur } from '../models/user';
 import { Categorie } from '../models/categorie';
+import { CommandeGroupee } from '../models/commandeGroupee';
+import { ProduitCount } from './produit.service';
+import { Produits } from '../models/produits';
 @Injectable({
   providedIn: 'root',
 })
 export class ApiServices {
-  constructor(private htt: HttpClient) {}
+  constructor(private http: HttpClient) {}
 
   getCommercant() {
-    return this.htt.get<Commercant[]>(`${environement.apiUrl}/commercant`);
+    return this.http.get<Commercant[]>(`${environement.remoteUrl}/commercant`);
   }
 
   getFournisseur() {
-    return this.htt.get<Fournisseur[]>(`${environement.apiUrl}/fournisseur`);
+    return this.http.get<Fournisseur[]>(`${environement.remoteUrl}/fournisseur`);
   }
 
   ajoutCategorie(nom: string) {
-    return this.htt.post<Categorie>(`${environement.apiUrl}/categorie`, { nom });
+    return this.http.post<Categorie>(`${environement.remoteUrl}/categorie`, { nom });
   }
 
   getCategorie() {
-    return this.htt.get<Categorie[]>(`${environement.apiUrl}/categorie`);
+    return this.http.get<Categorie[]>(`${environement.remoteUrl}/categorie`);
   }
 
   getCommande() {
-    return this.htt.get(`${environement.apiUrl}/commandeGroupee`);
+    return this.http.get<CommandeGroupee[]>(`${environement.remoteUrl}/commandeGroupee`);
+  }
+
+  getProduit() {
+    return this.http.get<Produits>(`${environement.remoteUrl}/produits`);
   }
 }
