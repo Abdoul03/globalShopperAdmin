@@ -4,30 +4,40 @@ import { Observable } from 'rxjs';
 import { environement } from '../env';
 import { Commercant, Fournisseur } from '../models/user';
 import { Categorie } from '../models/categorie';
-import { CommandeGroupee } from '../models/commande-groupee';
+import { CommandeGroupee } from '../models/commandeGroupee';
+import { Produits } from '../models/produits';
+import { Transaction } from '../models/transaction';
 @Injectable({
   providedIn: 'root',
 })
 export class ApiServices {
-  constructor(private htt: HttpClient) {}
+  constructor(private http: HttpClient) {}
 
-  getCommercant() {
-    return this.htt.get<Commercant[]>(`${environement.apiUrl}/commercant`);
+  getCommercant(): Observable<Commercant[]> {
+    return this.http.get<Commercant[]>(`${environement.remoteUrl}/commercant`);
   }
 
-  getFournisseur() {
-    return this.htt.get<Fournisseur[]>(`${environement.apiUrl}/fournisseur`);
+  getFournisseur(): Observable<Fournisseur[]> {
+    return this.http.get<Fournisseur[]>(`${environement.remoteUrl}/fournisseur`);
   }
 
-  ajoutCategorie(nom: string) {
-    return this.htt.post<Categorie>(`${environement.apiUrl}/categorie`, { nom });
+  ajoutCategorie(nom: string): Observable<Categorie> {
+    return this.http.post<Categorie>(`${environement.remoteUrl}/categorie`, { nom });
   }
 
-  getCategorie() {
-    return this.htt.get<Categorie[]>(`${environement.apiUrl}/categorie`);
+  getCategorie(): Observable<Categorie[]> {
+    return this.http.get<Categorie[]>(`${environement.remoteUrl}/categorie`);
   }
 
   getCommande(): Observable<CommandeGroupee[]> {
-    return this.htt.get<CommandeGroupee[]>(`${environement.apiUrl}/commandeGroupee`);
+    return this.http.get<CommandeGroupee[]>(`${environement.remoteUrl}/commandeGroupee`);
+  }
+
+  getProduit(): Observable<Produits[]> {
+    return this.http.get<Produits[]>(`${environement.remoteUrl}/produits`);
+  }
+
+  getTransactions(): Observable<Transaction[]> {
+    return this.http.get<Transaction[]>(`${environement.remoteUrl}/transaction`);
   }
 }

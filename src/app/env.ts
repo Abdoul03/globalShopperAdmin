@@ -1,3 +1,4 @@
 export const environement = {
-  apiUrl: 'https://globalshopper.onrender.com/api',
+  apiUrl: 'http://localhost:8080/api',
+  remoteUrl: 'https://globalshopper.onrender.com/api',
 };
