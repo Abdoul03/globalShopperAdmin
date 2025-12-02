@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { BehaviorSubject, Observable, throwError, of } from 'rxjs';
 import { catchError, tap, filter, switchMap, take } from 'rxjs/operators';
+import { environement } from '../env';
 
 interface TokenPair {
   accessToken: string;
@@ -19,7 +20,7 @@ interface AuthRequest {
   providedIn: 'root'
 })
 export class AuthService {
-  private readonly BASE_URL = 'https://globalshopper.onrender.com/api'; // Utilisation du proxy
+ // Utilisation du proxy
   private readonly ACCESS_TOKEN_KEY = 'access_token';
   private readonly REFRESH_TOKEN_KEY = 'refresh_token';
   private isAuthenticatedSubject = new BehaviorSubject<boolean>(false);
@@ -38,7 +39,7 @@ export class AuthService {
   login(identifiant: string, motDePasse: string, rememberMe: boolean): Observable<TokenPair> {
     const authRequest: AuthRequest = { identifiant, motDePasse };
     
-    return this.http.post<TokenPair>(`${this.BASE_URL}/auth/login`, authRequest, {
+    return this.http.post<TokenPair>(`${environement.apiUrl}/auth/login`, authRequest, {
       headers: {
         'Content-Type': 'application/json'
       }
@@ -132,7 +133,7 @@ export class AuthService {
     this.isRefreshing = true;
     this.refreshTokenSubject.next(null);
 
-    return this.http.post<TokenPair>(`${this.BASE_URL}/auth/refresh`, { refreshToken }).pipe(
+    return this.http.post<TokenPair>(`${environement.apiUrl}/auth/refresh`, { refreshToken }).pipe(
       tap(tokens => {
         this.saveTokens(tokens, localStorage.getItem(this.REFRESH_TOKEN_KEY) !== null);
         this.refreshTokenSubject.next(tokens.accessToken);

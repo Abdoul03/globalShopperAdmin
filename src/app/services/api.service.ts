@@ -1,8 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { environement } from '../env';
 import { Commercant, Fournisseur } from '../models/user';
 import { Categorie } from '../models/categorie';
+import { CommandeGroupee } from '../models/commande-groupee';
 @Injectable({
   providedIn: 'root',
 })
@@ -25,7 +27,7 @@ export class ApiServices {
     return this.htt.get<Categorie[]>(`${environement.apiUrl}/categorie`);
   }
 
-  getCommande() {
-    return this.htt.get(`${environement.apiUrl}/commandeGroupee`);
+  getCommande(): Observable<CommandeGroupee[]> {
+    return this.htt.get<CommandeGroupee[]>(`${environement.apiUrl}/commandeGroupee`);
   }
 }

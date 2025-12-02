@@ -1,0 +1,38 @@
+<section class="categories-page">
+  <header class="categories-header">
+    <div class="title-wrap">
+      <h1 class="title">Catégories</h1>
+      <span class="count-chip" *ngIf="categories?.length">{{ categories.length }}</span>
+    </div>
+    <div class="actions">
+      <input class="input" type="text" [(ngModel)]="newCategorieName" placeholder="Nouvelle catégorie" />
+      <button class="btn btn-primary" type="button" (click)="addCategorie()">Ajouter</button>
+    </div>
+  </header>
+
+  <div *ngIf="loading" class="state state-loading">Chargement...</div>
+  <div *ngIf="!loading && error" class="state state-error">{{ error }}</div>
+
+  <div *ngIf="!loading && !error && categories?.length === 0" class="state state-empty">Aucune catégorie pour le moment</div>
+
+  <div class="card" *ngIf="!loading && !error && categories?.length">
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="col-id">ID</th>
+          <th>Nom</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let c of categories; let i = index" [class.striped]="i % 2 === 1">
+          <td class="col-id">{{ c.id }}</td>
+          <td>
+            <div class="name-cell">
+              <span class="name-text">{{ c.nom }}</span>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
