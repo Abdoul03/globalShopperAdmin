@@ -36,28 +36,16 @@
           <td>
             <div class="progress-bar">
               <div class="progress-bar-bg"></div>
-              <div
-                class="progress-bar-fill"
-                [style.width.%]="order.progress"
-              ></div>
+              <div class="progress-bar-fill" [style.width.%]="order.progress"></div>
             </div>
           </td>
           <td>{{ order.deadline }}</td>
           <td class="status-cell">
-            <span
-              class="status-icon"
-              [ngClass]="{
-                'status-icon-pending': order.status === 'pending',
-                'status-icon-in-progress': order.status === 'in_progress'
-              }"
-            >
-              ⏳
-            </span>
+            <span class="status-icon">⏳</span>
+            <span class="sr-only">{{ order.status }}</span>
           </td>
           <td class="actions-cell">
-            <button type="button" class="delete-btn" title="Supprimer">
-              🗑
-            </button>
+            <button type="button" class="delete-btn" title="Supprimer">🗑</button>
           </td>
         </tr>
       </tbody>

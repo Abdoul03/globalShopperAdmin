@@ -1,0 +1,32 @@
+/* Layout */
+.categories-page { padding: 1rem 1.25rem; }
+.categories-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+.title { margin: 0; font-size: 1.75rem; font-weight: 700; letter-spacing: -0.01em; }
+.title-wrap { display: flex; align-items: center; gap: 0.5rem; }
+.count-chip { background: #eef2ff; color: #3730a3; border: 1px solid #c7d2fe; padding: 0.15rem 0.5rem; border-radius: 999px; font-weight: 600; font-size: 0.85rem; }
+
+/* Actions */
+.actions { display: flex; gap: 0.6rem; align-items: center; }
+.input { height: 36px; padding: 0 0.75rem; border: 1px solid #e5e7eb; border-radius: 8px; background: #fff; outline: none; }
+.input:focus { border-color: #93c5fd; box-shadow: 0 0 0 3px rgba(147,197,253,0.35); }
+.btn { height: 36px; padding: 0 0.9rem; border-radius: 8px; border: 1px solid transparent; cursor: pointer; }
+.btn-primary { background: #2563eb; color: #fff; }
+.btn-primary:hover { background: #1d4ed8; }
+
+/* States */
+.state { margin: 0.5rem 0; font-size: 0.95rem; }
+.state-loading { color: #374151; }
+.state-error { color: #b91c1c; }
+.state-empty { color: #6b7280; }
+
+/* Card & Table */
+.card { background: #fff; border-radius: 14px; padding: 0.75rem; box-shadow: 0 10px 22px rgba(0,0,0,0.06); overflow: hidden; }
+.table { width: 100%; border-collapse: separate; border-spacing: 0; }
+.table thead th { background: #f9fafb; color: #111827; text-align: left; font-weight: 600; font-size: 0.9rem; padding: 0.75rem 1rem; border-bottom: 1px solid #e5e7eb; }
+.table tbody td { padding: 0.75rem 1rem; border-bottom: 1px solid #f1f5f9; }
+.table .col-id { width: 110px; color: #6b7280; }
+.table tr.striped td { background: #fcfcfd; }
+
+/* Cells */
+.name-cell { display: flex; align-items: center; gap: 0.5rem; }
+.name-text { font-weight: 500; color: #111827; }
