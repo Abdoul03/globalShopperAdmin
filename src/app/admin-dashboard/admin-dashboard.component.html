@@ -7,7 +7,7 @@
         <img src="assets/Vector (6).png" alt="Icône partenaires" />
       </div>
       <div class="stat-text">
-        <div class="stat-value">20</div>
+        <div class="stat-value">{{ partenaire.length }}</div>
         <div class="stat-label">Partenaires</div>
       </div>
     </div>
@@ -17,7 +17,7 @@
         <img src="assets/Vector (7).png" alt="Icône produits" />
       </div>
       <div class="stat-text">
-        <div class="stat-value">100</div>
+        <div class="stat-value">{{ produits.length }}</div>
         <div class="stat-label">Produits en ligne</div>
       </div>
     </div>
@@ -27,7 +27,7 @@
         <img src="assets/Vector (8).png" alt="Icône commandes" />
       </div>
       <div class="stat-text">
-        <div class="stat-value">500</div>
+        <div class="stat-value">{{ commandes.length }}</div>
         <div class="stat-label">Commandes</div>
       </div>
     </div>
@@ -37,7 +37,7 @@
         <img src="assets/Vector (9).png" alt="Icône transaction" />
       </div>
       <div class="stat-text">
-        <div class="stat-value">40</div>
+        <div class="stat-value">{{ transaction.length }}</div>
         <div class="stat-label">Transaction</div>
       </div>
     </div>
@@ -51,46 +51,64 @@
     <div class="table-wrapper">
       <table class="dashboard-table">
         <thead>
-        <tr>
-          <th>ID</th>
-          <th>Produit</th>
-          <th>MOQ</th>
-          <th>Réservé</th>
-          <th>Avancement</th>
-          <th>Deadline</th>
-          <th>Statut</th>
-          <th>Actions</th>
-        </tr>
+          <tr>
+            <th>ID</th>
+            <th>Produit</th>
+            <th>MOQ</th>
+            <th>Réservé</th>
+            <th>Avancement</th>
+            <th>Deadline</th>
+            <th>Statut</th>
+            <th>Actions</th>
+          </tr>
         </thead>
         <tbody>
-        <tr>
-          <td>#RP-1021</td>
-          <td>cartons d'emballage 50 x 50</td>
-          <td>100</td>
-          <td>70</td>
-          <td>
-            <div class="progress-bar small">
-              <div class="progress-bar-inner progress-primary w-70"></div>
-            </div>
-          </td>
-          <td>25/10/2025</td>
-          <td class="status"><span class="chip chip-pending">En cours</span></td>
-          <td class="actions"><button class="btn-icon btn-icon--danger" type="button" aria-label="Supprimer" title="Supprimer"><img src="assets/Vector (16).png" alt="Supprimer" /></button></td>
-        </tr>
-        <tr>
-          <td>#RP-1022</td>
-          <td>Power banks 10 000 Ah</td>
-          <td>200</td>
-          <td>70</td>
-          <td>
-            <div class="progress-bar small">
-              <div class="progress-bar-inner progress-primary w-50"></div>
-            </div>
-          </td>
-          <td>25/10/2025</td>
-          <td class="status"><span class="chip chip-pending">En cours</span></td>
-          <td class="actions"><button class="btn-icon btn-icon--danger" type="button" aria-label="Supprimer" title="Supprimer"><img src="assets/Vector (16).png" alt="Supprimer" /></button></td>
-        </tr>
+          <tr>
+            <td>#RP-1021</td>
+            <td>cartons d'emballage 50 x 50</td>
+            <td>100</td>
+            <td>70</td>
+            <td>
+              <div class="progress-bar small">
+                <div class="progress-bar-inner progress-primary w-70"></div>
+              </div>
+            </td>
+            <td>25/10/2025</td>
+            <td class="status"><span class="chip chip-pending">En cours</span></td>
+            <td class="actions">
+              <button
+                class="btn-icon btn-icon--danger"
+                type="button"
+                aria-label="Supprimer"
+                title="Supprimer"
+              >
+                <img src="assets/Vector (16).png" alt="Supprimer" />
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>#RP-1022</td>
+            <td>Power banks 10 000 Ah</td>
+            <td>200</td>
+            <td>70</td>
+            <td>
+              <div class="progress-bar small">
+                <div class="progress-bar-inner progress-primary w-50"></div>
+              </div>
+            </td>
+            <td>25/10/2025</td>
+            <td class="status"><span class="chip chip-pending">En cours</span></td>
+            <td class="actions">
+              <button
+                class="btn-icon btn-icon--danger"
+                type="button"
+                aria-label="Supprimer"
+                title="Supprimer"
+              >
+                <img src="assets/Vector (16).png" alt="Supprimer" />
+              </button>
+            </td>
+          </tr>
         </tbody>
       </table>
     </div>
