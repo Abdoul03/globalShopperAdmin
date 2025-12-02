@@ -1,3 +1,5 @@
+import { Role } from 'react-native';
+
 export interface Fournisseur {
   id: number;
   nom: string;
@@ -5,6 +7,9 @@ export interface Fournisseur {
   username: string;
   email: string;
   telephone: string;
+  actif: boolean;
+  photoUrl: string;
+  role: Role;
 }
 export interface Commercant {
   id: number;
@@ -13,4 +18,7 @@ export interface Commercant {
   username: string;
   email: string;
   telephone: string;
+  actif: boolean;
+  photoUrl: string;
+  role: Role;
 }

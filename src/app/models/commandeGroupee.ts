@@ -1,5 +1,5 @@
 import { OrderStatus } from './enums/orderStatus';
-import { Participations } from './participation';
+import { Participation } from './participation';
 import { Produits } from './produits';
 import { Commercant } from './user';
 
@@ -11,7 +11,7 @@ export interface CommandeGroupee {
   quaniteActuelle: number;
   deadline: Date;
   produit: Produits;
-  participations: Participations[];
+  participation: Participation[];
   dateDebut: Date;
   commercant: Commercant;
 }

@@ -1,5 +1,5 @@
 <section class="products-page">
-  <header class="products-header">
+  <!-- <header class="products-header">
     <h1 class="products-title">Catalogue - Modération</h1>
 
     <div class="products-actions">
@@ -11,7 +11,7 @@
 
       <button class="primary-btn">Crée une commande</button>
     </div>
-  </header>
+  </header> -->
 
   <div class="products-card">
     <table class="products-table">
@@ -21,20 +21,14 @@
           <th>Fournisseur</th>
           <th>Prix</th>
           <th>MOQ</th>
-          <th>Action</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let product of products">
-          <td>{{ product.name }}</td>
-          <td>{{ product.supplier }}</td>
-          <td>{{ product.price }}</td>
+        <tr *ngFor="let product of produits">
+          <td>{{ product.nom }}</td>
+          <td>{{ product.fournisseur.prenom }}</td>
+          <td>{{ product.prix }}</td>
           <td>{{ product.moq }}</td>
-          <td class="actions-cell">
-            <button type="button" class="delete-btn" title="Supprimer">
-              🗑
-            </button>
-          </td>
         </tr>
       </tbody>
     </table>

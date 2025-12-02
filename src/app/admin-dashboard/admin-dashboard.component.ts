@@ -18,7 +18,7 @@ export class AdminDashboardComponent implements OnInit {
   private apiService = inject(ApiServices);
 
   produits!: Produits[];
-
+  error: string | null = null;
   fournisseur: Fournisseur[] = [];
   commercant: Commercant[] = [];
   commandes: CommandeGroupee[] = [];
@@ -26,29 +26,13 @@ export class AdminDashboardComponent implements OnInit {
 
   partenaire!: any[];
 
-  getAllProject() {
+  getAllProduit() {
     this.apiService.getProduit().subscribe({
       next: (response) => {
         this.produits = response;
       },
     });
   }
-
-  // getAllFournisseur() {
-  //   this.apiService.getFournisseur().subscribe({
-  //     next: (response) => {
-  //       this.fournisseur = response;
-  //     },
-  //   });
-  // }
-
-  // getAllCommaercant() {
-  //   this.apiService.getCommercant().subscribe({
-  //     next: (response) => {
-  //       this.commercant = response;
-  //     },
-  //   });
-  // }
 
   loadPartenaire() {
     forkJoin({
@@ -71,6 +55,9 @@ export class AdminDashboardComponent implements OnInit {
         this.commandes = responses;
         console.log(this.commandes);
       },
+      error: () => {
+        this.error = 'Erreur de chargement des catégories';
+      },
     });
   }
 
@@ -82,9 +69,9 @@ export class AdminDashboardComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.loadPartenaire();
-    this.getAllProject();
+    this.getAllProduit();
     this.getAllCommande();
     this.getAllTransaction();
   }

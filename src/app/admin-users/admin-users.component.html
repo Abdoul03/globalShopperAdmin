@@ -8,23 +8,17 @@
       <thead>
         <tr>
           <th>Nom</th>
+          <th>Prenom</th>
           <th>Email</th>
           <th>Type</th>
-          <th>Date inscription</th>
-          <th>Action</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let user of users">
-          <td>{{ user.name }}</td>
+        <tr *ngFor="let user of partenaire">
+          <td>{{ user.nom }}</td>
+          <td>{{ user.prenom }}</td>
           <td>{{ user.email }}</td>
-          <td>{{ user.type }}</td>
-          <td>{{ user.registeredAt }}</td>
-          <td class="actions-cell">
-            <button type="button" class="delete-btn" title="Supprimer">
-              🗑
-            </button>
-          </td>
+          <td>{{ user.role }}</td>
         </tr>
       </tbody>
     </table>

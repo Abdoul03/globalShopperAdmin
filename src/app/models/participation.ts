@@ -2,7 +2,7 @@ import { CommandeGroupee } from './commandeGroupee';
 import { Transaction } from './transaction';
 import { Commercant } from './user';
 
-export interface Participations {
+export interface Participation {
   id: number;
   commercant: Commercant;
   commandeGroupee: CommandeGroupee;

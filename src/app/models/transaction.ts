@@ -2,7 +2,7 @@ import { CompteFourisseur } from './compteFournisseur';
 import { MethodeDePayement } from './enums/methodeDePayement';
 import { Status } from './enums/status';
 import { TransactionType } from './enums/transactionType';
-import { Participations } from './participation';
+import { Participation } from './participation';
 import { wallet } from './wallet';
 
 export interface Transaction {
@@ -11,7 +11,7 @@ export interface Transaction {
   transactionType: TransactionType;
   methodeDePayement: MethodeDePayement;
   date: Date;
-  participation: Participations;
+  participation: Participation;
   wallet: wallet;
   compteFourisseur: CompteFourisseur;
   statut: Status;

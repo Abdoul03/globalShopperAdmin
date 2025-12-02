@@ -1,44 +1,35 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ApiServices } from '../services/api.service';
+import { Fournisseur } from '../models/user';
 
 @Component({
   selector: 'app-admin-suppliers',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './admin-suppliers.component.html',
-  styleUrl: './admin-suppliers.component.css'
+  styleUrl: './admin-suppliers.component.css',
 })
-export class AdminSuppliersComponent {
-  suppliers = [
-    {
-      name: 'Aboubacar Sogoba',
-      email: 'ab94640419@gmail.com',
-      phone: '+223 92 11 30 06',
-      status: 'pending' as const,
-      active: true,
-    },
-    {
-      name: 'Amadou Sogoba',
-      email: 'ab94640419@gmail.com',
-      phone: '+223 85 47 47 57',
-      status: 'rejected' as const,
-      active: false,
-    },
-    {
-      name: 'Amadou Sogoba',
-      email: 'ab94640419@gmail.com',
-      phone: '+223 85 47 47 57',
-      status: 'rejected' as const,
-      active: false,
-    },
-    {
-      name: 'Amadou Sogoba',
-      email: 'ab94640419@gmail.com',
-      phone: '+223 85 47 47 57',
-      status: 'pending' as const,
-      active: false,
-    },
-  ];
+export class AdminSuppliersComponent implements OnInit {
+  private apiService = inject(ApiServices);
+
+  suppliers: Fournisseur[] = [];
+  error: string | null = null;
+
+  getAllFournisseur() {
+    this.apiService.getFournisseur().subscribe({
+      next: (response) => {
+        this.suppliers = response;
+      },
+      error: () => {
+        this.error = 'Erreur de chargement des catégories';
+      },
+    });
+  }
+
+  ngOnInit(): void {
+    this.getAllFournisseur();
+  }
 
   toggleActive(supplier: { active: boolean }) {
     supplier.active = !supplier.active;
